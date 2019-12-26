@@ -7,26 +7,25 @@
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many:grupes through: :grupes_users
+- has_many:groups through: :groups_users
 - has_many:comments
 
-## grupesテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
 ### Association
-- belongs_to :user
-- has_many:comments 
-- has_many:users,  through:  : grupes_users
+- has_many :comments 
+- has_many :users,  through:  :groups_users
 
-## grupes_usersテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|grupe_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to:user
-- belongs_to:grupes
+- belongs_to:groups
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -37,4 +36,4 @@
 |group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to:user
-- belongs_to:grupes
+- belongs_to:groups
