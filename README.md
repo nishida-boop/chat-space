@@ -7,28 +7,26 @@
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :chat-space grupes
-- has_many :comments
-- belongs_to:chat-space grupes, through:  :authorizations
+- has_many:grupes through: :grupes_users
+- has_many:comments
 
-## chat-space grupesテーブル
+## grupesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
-|user_id|integer|null: false|
 ### Association
 - belongs_to :user
-- belongs_to:comments
-- belongs_to:users,  through:  : authorizations
+- has_many:comments 
+- has_many:users,  through:  : grupes_users
 
-## authorizationsテーブル
+## grupes_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|users_id|integer|null: false, foreign_key: true|
-|chat-space grupes_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|grupe_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- belongs_to:chat-space grupes
+- belongs_to:user
+- belongs_to:grupes
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -38,5 +36,5 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- belongs_to:chat-space grupes
+- belongs_to:user
+- belongs_to:grupes
