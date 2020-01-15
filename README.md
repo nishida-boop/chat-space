@@ -1,31 +1,41 @@
-# chatspace DB設計
+# chat-space DB設計
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 ### Association
-- has_many :chatgroup
-- has_many :comments
+- has_many :groups_users
+- has_many:groups through: :groups_users
+- has_many:comments
 
-## chatgroupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
-|addition|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-｜username｜text|null: false|
 ### Association
-- belongs_to :user
-- has_many :comments
+- has_many :comments 
+- has_many :groups_users
+- has_many :users,  through:  :groups_users
+
+## groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group|integer|null: false, foreign_key: true|
+### Association
+- belongs_to:user
+- belongs_to:group
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
+|image｜text||
 |user_id|integer|null: false, foreign_key: true|
-|chatgroup_id|integer|null: false, foreign_key: true|
+|group|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- has_many:chatgroup
+- belongs_to:user
+- belongs_to:group
