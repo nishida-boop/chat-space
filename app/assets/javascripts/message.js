@@ -3,6 +3,7 @@ $(function(){
  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
   setInterval(reloadMessages, 7000);
 }
+return html;
   last_message_id = $('.message:last').data("message-id");
   function buildHTML(message){
    if ( message.image ) {
@@ -99,7 +100,7 @@ var reloadMessages = function() {
   });
     var buildHTML = function(message) {
       if (message.content && message.image) {
-        return html;
+        
         //data-idが反映されるようにしている
         var html = `<div class="message" data-message-id=` + message.id + `>` +
           `<div class="upper-message">` +
