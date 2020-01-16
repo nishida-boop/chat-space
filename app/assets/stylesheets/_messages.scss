@@ -80,7 +80,6 @@
     }
     .right-header {
       border: 1px solid #38aef0;
-      color: #38aef0;;
       float: right;
       height: 40px;
       line-height: 40px;
@@ -130,6 +129,7 @@
       float: left;
       height: 50px;
       width: calc(100% - 150px);
+      padding-left: 20px;
     }
     &__mask {
       background-color: white;
@@ -155,4 +155,8 @@
       padding: 0 30px;
     }
   }
+}
+.edit{
+  text-decoration: none;
+  color:  #38aef0;
 }
