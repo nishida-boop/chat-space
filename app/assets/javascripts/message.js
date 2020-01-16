@@ -4,7 +4,6 @@ $(function(){
   setInterval(reloadMessages, 7000);
 }
   last_message_id = $('.message:last').data("message-id");
-  console.log(last_message_id);
   function buildHTML(message){
    if ( message.image ) {
      var html =
@@ -81,7 +80,7 @@ var reloadMessages = function() {
     data: {id: last_message_id}
   })
   .done(function(messages) {
-  　if (messages.length !== 0) {
+    if (messages.length !== 0) {
     //追加するHTMLの入れ物を作る
     var insertHTML = '';
     //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
@@ -96,7 +95,7 @@ var reloadMessages = function() {
   }
  })
   .fail(function() {
-    console.log('error');
+    alert('自動更新に失敗しました')；
     });
     var buildHTML = function(message) {
       if (message.content && message.image) {
