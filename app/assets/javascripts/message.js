@@ -96,7 +96,7 @@ var reloadMessages = function() {
  })
   .fail(function() {
     alert('自動更新に失敗しました')
-    });
+  });
     var buildHTML = function(message) {
       if (message.content && message.image) {
         //data-idが反映されるようにしている
