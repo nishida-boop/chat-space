@@ -152,4 +152,5 @@ var reloadMessages = function() {
       return html;
     };
    };
- });
+ })
+})
