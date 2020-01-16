@@ -116,6 +116,7 @@ var reloadMessages = function() {
             `<img src="` + message.image + `" class="lower-message__image" >` +
           `</div>` +
         `</div>`
+        return html;
       } else if (message.content) {
         //同様に、data-idが反映されるようにしている
         var html = `<div class="message" data-message-id=` + message.id + `>` +
@@ -148,7 +149,6 @@ var reloadMessages = function() {
             `<img src="` + message.image + `" class="lower-message__image" >` +
           `</div>` +
         `</div>`
-        return html;
       };
     };
    };
