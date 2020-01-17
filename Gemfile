@@ -39,6 +39,11 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
   gem 'pry-rails'
   gem "rspec-rails", "~> 3.0.1"
   gem 'rails-controller-testing'
