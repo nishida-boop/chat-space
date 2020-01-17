@@ -64,3 +64,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'rake', '< 11.0'
+group :production do
+  gem 'unicorn', '5.4.1'
+end
