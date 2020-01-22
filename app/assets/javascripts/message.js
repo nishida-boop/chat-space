@@ -1,4 +1,5 @@
 $(function(){
+  last_message_id = $('.message:last').data("message-id");
   function buildHTML(message){
    if ( message.image ) {
      var html =
@@ -66,8 +67,9 @@ $('#new_message').on('submit', function(e){
  var reloadMessages = function() {
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
   if (document.location.href.match(/\/groups\/\d+\/messages/)){
-  last_message_id = $('.message:last').data("message-id");
-    $.ajax({
+ last_message_id = $('.message:last').data("message-id");
+ console.log(last_message_id)
+    $.ajax({ 
       //ルーティングで設定した通りのURLを指定
       url: "api/messages",
       //ルーティングで設定した通りhttpメソッドをgetに指定
@@ -77,6 +79,7 @@ $('#new_message').on('submit', function(e){
       data: {id: last_message_id}
     })
   .done(function(messages) {
+    console.log(messages)
     if (messages.length !== 0) {
     //追加するHTMLの入れ物を作る
     var insertHTML = '';
@@ -87,10 +90,12 @@ $('#new_message').on('submit', function(e){
     //メッセージが入ったHTMLに、入れ物ごと追加
     $('.messages').append(insertHTML);
     $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-    }
+    $("#new_message")[0].reset();
+    $(".form__submit").prop("disabled", false);
+      }
   })
   .fail(function() {
-    alart('error');
+    alert('error');
   });
 }
 };

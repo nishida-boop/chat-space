@@ -4,9 +4,9 @@
       .left-header
         .left-header__title
           =@group.name
-        %ul.left-header__members
-          member
-          %li.left-header__members
+          %ul.left-header__members
+            member 
+            %li.left-header__members
             -@group.users.each do |user|
               =user.name
       .right-header
